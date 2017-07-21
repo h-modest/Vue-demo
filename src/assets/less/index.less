@@ -1,15 +1,235 @@
 @import './common.less';
 
-.header {
-  height: 40px;
-  background: @black;
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.home {
   display: flex;
-  .logo {
-    height: 40px;
-    text-align: left;
-    padding-left: 10px;
-    img {
+  &.open-search {
+    position: fixed;
+    .wrap .header .search {
+      display: block;
+    }
+  }
+  .wrap {
+    flex: 1;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative;
+    left: 0;
+    transition: all .5s ease-in-out;
+    @top: 25px; @add: 7px;
+    &.fold {
+      left: -120px;
+      .header .option {
+        .toggle-menu .line {
+          &:first-child {
+            top: @top + @add;
+            transform: rotate(45deg);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:last-child {
+            top: @top + @add;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+    .header {
+      height: 60px;
+      background: @black;
+      display: flex;
+      .logo {
+        height: 40px;
+        width: 70px;
+        text-align: left;
+        padding: 10px;
+        img {
+          height: 100%;
+        }
+      }
+      .option {
+        flex: 1;
+        text-align: right;
+        .tool  {
+          height: 60px;
+          vertical-align: middle;
+          &:active {
+            background: @dary-black;
+            color: @gray;
+          }
+        }
+        .look {
+          display: inline-block;
+          width: 60px;
+          font-size: 24px;
+          text-align: center;
+          line-height: 62px;
+          color: @white;
+        }
+        .toggle-menu {
+          display: inline-block;
+          width: 60px;
+          position: relative;
+          &:active {
+            .line {
+              background: @gray;
+            }
+          }
+          .line {
+            display: inline-block;
+            position: absolute;
+            left: 17px;
+            top: @top+@add;
+            width: 26px;
+            height: 1px;
+            background: @white;
+            transition: all .5s ease-in-out;
+            &:first-child {
+              top: @top;
+            }
+            &:last-child {
+              top: @top+@add*2;
+            }
+          }
+        }
+      }
+      .search {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: @white;
+        z-index: 100;
+        display: none;
+        .head {
+          height: 40px;
+          background: @black;
+          padding: 10px;
+          display: flex;
+          .details {
+            flex: 1;
+            display: flex;
+            height: 38;
+            border: 1px solid @white;
+            input {
+              flex: 1;
+              padding: 6px;
+              background: @black;
+              color: @white;
+              &:focus {
+                outline-color: transparent;
+              }
+            }
+            .extend {
+              width: 40px;
+              font-size: 24px;
+              line-height: 38px;
+              text-align: center;
+              color: @white;
+            }
+          }
+          .cancel-search {
+            display: block;
+            width: 40px;
+            margin-left: 10px;
+            position: relative;
+            &:active {
+              background: @dark;
+            }
+            &::before,
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 19.5px;
+              left: 7px;
+              width: 26px;
+              height: 1px;
+              background: @white;
+            }
+            &::before {
+              transform: rotate(45deg);
+            }
+            &::after {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+    .content {
+      flex: 1;
+      .navigation {
+        display: flex;
+        height: 50px;
+        line-height: 50px;
+        margin-bottom: 1px;
+        li {
+          flex: 1;
+          border-right: 1px solid @light-gray;
+          &:last-child {
+            border-right: none;
+          }
+          a {
+            display: block;
+            border-bottom: 1px solid @light-gray;
+            &.router-link-exact-active {
+              border-bottom-color: @point;
+            }
+          }
+        }
+      }
+    }
+    .footer {
+      display: flex;
+      height: 30px;
+      padding: 10px;
+      background: @black;
+      color: @white;
+      .logo {
+        height: 30px;
+        padding-right: 10px;
+        border-right: 1px solid @white;
+      }
+      .contact {
+        flex: 1;
+        font-size: 14px;
+        p:last-child {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+  .menu {
+    position: fixed;
+    right: -120px;
+    width: 120px;
+    height: 100%;
+    background: rgba(0,0,0,.8);
+    transition: all .5s ease-in-out;
+    &.open {
+      right: 0;
+    }
+    .list {
       height: 100%;
+      color: @white;
+      li {
+        height: 50px;
+        line-height: 50px;
+        &:first-child {
+          height: 60px;
+          line-height: 60px;
+          background: @black;
+        }
+      }
     }
   }
 }

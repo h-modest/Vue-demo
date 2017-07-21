@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './assets/less/index.less'
+import './assets/less/home.less'
 
 Vue.config.productionTip = false
 

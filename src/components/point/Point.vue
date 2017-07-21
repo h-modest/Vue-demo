@@ -1,12 +1,11 @@
 <template>
-  <div>News</div>
+  <div>
+    123
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'news'
+  name: 'point'
 }
 </script>
-
-<style lang="css">
-</style>
