@@ -8,7 +8,7 @@
             <img :src="logo" />
           </div>
           <div class="option">
-            <img  class="tool jump" :src="require('/assets/image/head/logo-baidu.png')" @click="jump" />
+            <img  class="tool jump" :src="require('@/assets/image/head/logo-baidu.png')" @click="jump" />
             <span class="tool look" @click="search"><i class="fa fa-search"></i></span>
             <span class="tool toggle-menu" @click="toggleMenu">
               <span class="line"></span>
@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       menuOpen: false,
-      logo: require('/assets/image/head/logo-baijia.png'),
+      logo: require('@/assets/image/head/logo-baijia.png'),
       menuList: [
         '京州市...',
         '巨头',

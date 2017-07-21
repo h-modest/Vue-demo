@@ -33,23 +33,23 @@
     data() {
       return {
         bannerList: [
-          { src: require('/assets/image/select/a.jpg'), url: '/' },
-          { src: require('/assets/image/select/b.jpg'), url: '/' },
-          { src: require('/assets/image/select/c.jpg'), url: '/' },
-          { src: require('/assets/image/select/d.jpg'), url: '/' },
+          { src: require('@/assets/image/select/a.jpg'), url: '/' },
+          { src: require('@/assets/image/select/b.jpg'), url: '/' },
+          { src: require('@/assets/image/select/c.jpg'), url: '/' },
+          { src: require('@/assets/image/select/d.jpg'), url: '/' },
         ],
         swiperOption: {
           pagination: '.swiper-pagination',
           paginationClickable: true
         },
         newsList: [
-          { src: require('/assets/image/select/beijing.jpg'), title: '标题1', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('/assets/image/select/beijing.jpg'), title: '标题2', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('/assets/image/select/beijing.jpg'), title: '标题3', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('/assets/image/select/beijing.jpg'), title: '标题4', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('/assets/image/select/beijing.jpg'), title: '标题5', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('/assets/image/select/beijing.jpg'), title: '标题6', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('/assets/image/select/beijing.jpg'), title: '标题7', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' }
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题1', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题2', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题3', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题4', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题5', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题6', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题7', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' }
         ],
         loadMore: true,
         page: 1,
