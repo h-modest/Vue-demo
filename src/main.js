@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import './assets/less/index.less'
 import './assets/less/home.less'
+import './assets/less/point.less'
+import './assets/less/author.less'
+import './assets/less/setting.less'
 
 Vue.config.productionTip = false
 

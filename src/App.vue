@@ -5,7 +5,7 @@
       <div class="wrap" :class="{ fold: menuOpen}">
         <section class="header">
           <div class="logo">
-            <img :src="logo" />
+            <router-link to="/"><img :src="logo" /></router-link>
           </div>
           <div class="option">
             <img  class="tool jump" :src="require('@/assets/image/head/logo-baidu.png')" @click="jump" />
@@ -27,7 +27,7 @@
           </div>
         </section>
         <section class="content">
-          <ul class="navigation">
+          <ul class="navigation" v-if="isNavigationOpen">
             <li v-for="(item, index) in navigation" :key="index">
               <router-link :to="item.url">{{ item.title }}</router-link>
             </li>
@@ -78,7 +78,18 @@ export default {
       ],
       keyword: '',
       searchOpen: false,
+      isNavigationOpen: true,
     }
+  },
+  created(){
+    this.load();
+  },
+  updated(){
+    // if (this.navigation.indexOf(this.$router.history.current.path)) {
+    //   console.log(1);
+    // }
+    // console.log(this.navigation.indexOf(this.$router.history.current.path));
+    this.load();
   },
   watch: {
     keyword(newValue){
@@ -100,6 +111,13 @@ export default {
     },
     cancelSearch() {
       this.searchOpen = false;
+    },
+    load() {
+      let path = this.$router.history.current.path;
+      var newArr = this.navigation.filter(function(item){
+        return item.url === path;
+      });
+      this.isNavigationOpen = newArr.length != 0;
     }
   }
 }

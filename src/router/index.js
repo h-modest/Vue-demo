@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home/Home'
 import Point from '@/components/point/Point'
+import Author from '@/components/author/Author'
+import Topic from '@/components/topic/Topic'
+import Setting from '@/components/setting/Setting'
 
 Vue.use(Router)
 
@@ -17,6 +20,18 @@ export default new Router({
     {
       path: '/point',
       component: Point
+    },
+    {
+      path: '/author',
+      component: Author
+    },
+    {
+      path: '/setting',
+      component: Setting
+    },
+    {
+      path: '/topic',
+      component: Topic
     }
   ]
 })

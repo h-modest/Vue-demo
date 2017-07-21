@@ -1,0 +1,58 @@
+@import 'common.less';
+
+.author {
+  .business-card {
+    background-image: url('../image/author/author_banner_bg.jpg');
+    background-size: cover;
+    margin-bottom: 10px;
+    li {
+      display: inline-block;
+      width: 46vw;
+      height: 235px;
+      background: @black;
+      margin: 10px 2vw;
+      color: @white;
+      .head-portrait {
+        border-radius: 50%;
+        margin: 10px 0;
+        height: 120px;
+        width: 120px;
+      }
+      .title {
+        font-size: 16px;
+      }
+      .introduce {
+        font-size: 14px;
+        line-height: 30px;
+        padding: 0 20px;
+        color: @gray;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .follow {
+        margin-top: 8px;
+        height: 40px;
+        background: @follow;
+        line-height: 40px;
+        .follower {
+          display: inline-block;
+          width: 80px;
+          height: 26px;
+          background: @follow-btn;
+          border-radius: 13px;
+          color: @white;
+          text-align: center;
+          line-height: 26px;
+          &:active {
+            background: @follow-btn-hover;
+            color: @gray;
+          }
+          &.followed {
+            background: @black;
+          }
+        }
+      }
+    }
+  }
+}

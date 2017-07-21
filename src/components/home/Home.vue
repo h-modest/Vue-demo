@@ -9,16 +9,21 @@
       </swiper>
     </section>
     <section class="news">
-      <ul>
+      <div class="switch-tab">
+        <span class="icon" @click="tabChange(1)" :class="{ active: tabList }"><i class="fa fa-th-large"></i></span>
+        <span class="icon" @click="tabChange(0)" :class="{ active: !tabList }"><i class="fa fa-desktop"></i></span>
+      </div>
+      <ul :class=" tabList? 'list' : 'image-text' ">
         <li v-for="(vo, index) in loadNewsList" :key="index">
           <img :src="vo.src" />
           <div class="description">
             <p class="title">{{ vo.title }}</p>
             <p class="detail">{{ vo.description }}</p>
+            <p class="date">{{ vo.editor }} | {{ vo.date }}</p>
           </div>
         </li>
       </ul>
-      <span class="load-more" v-if="loadMore" @click="load">加载更多</span>
+      <span class="load-more" v-if="loadMore" @click="load">点击加载更多</span>
       <div v-else class="no-more">没有更多</div>
     </section>
   </div>
@@ -43,17 +48,18 @@
           paginationClickable: true
         },
         newsList: [
-          { src: require('@/assets/image/select/beijing.jpg'), title: '标题1', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('@/assets/image/select/beijing.jpg'), title: '标题2', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('@/assets/image/select/beijing.jpg'), title: '标题3', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('@/assets/image/select/beijing.jpg'), title: '标题4', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('@/assets/image/select/beijing.jpg'), title: '标题5', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('@/assets/image/select/beijing.jpg'), title: '标题6', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' },
-          { src: require('@/assets/image/select/beijing.jpg'), title: '标题7', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1' }
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题1', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1', date: '2017-05-01 20:28:55', editor: '新浪' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题2', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1', date: '2017-05-01 20:28:55', editor: '凤凰' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题3', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1', date: '2017-05-01 20:28:55', editor: '新浪' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题4', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1', date: '2017-05-01 20:28:55', editor: '凤凰' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题5', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1', date: '2017-05-01 20:28:55', editor: '新浪' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题6', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1', date: '2017-05-01 20:28:55', editor: '凤凰' },
+          { src: require('@/assets/image/select/beijing.jpg'), title: '标题7', description: '简介1简介1简介1简介1简介1简介1简介1简介1简介1简介1', date: '2017-05-01 20:28:55', editor: '新浪' }
         ],
         loadMore: true,
         page: 1,
         increment: 3,
+        tabList: true,
       }
     },
     computed: {
@@ -70,6 +76,9 @@
           this.loadMore = false
         }
         this.page++
+      },
+      tabChange(key){
+        this.tabList = !!key;
       }
     },
     components: {

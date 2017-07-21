@@ -1,0 +1,80 @@
+@import 'common.less';
+
+.point {
+  color: @white;
+  .question {
+    height: 180px;
+    background-image: url('../image/point/pointBg.jpg');
+    background-size: cover;
+    padding: 10px;
+    position: relative;
+    p {
+      font-weight: bold;
+    }
+    .title {
+      line-height: 28px;
+      font-size: 18px;
+    }
+    .periods {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .debate {
+      display: flex;
+      width: 100%;
+      .square {
+        flex: 7.5;
+        text-align: left;
+        .percent {
+          background: @point;
+        }
+      }
+      .conside {
+        flex: 2.5;
+        text-align: right;
+        .percent {
+          background: @blue;
+        }
+      }
+      .percent {
+        height: 6px;
+        width: 100%;
+        margin: 8px 0;
+      }
+    }
+    .topic {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: @point;
+    }
+  }
+  .gambit {
+    padding: 10px;
+    li {
+      height: 140px;
+      background-image: url('../image/point/pointBg.jpg');
+      background-size: cover;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .time {
+        text-align: left;
+        padding: 5px;
+      }
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px 0 10px;
+      }
+      .message {
+        padding: 0 10px;
+        font-size: 14px;
+        // overflow: hidden;
+        // white-space: nowrap;
+        // text-overflow: ellipsis;
+      }
+    }
+  }
+}
