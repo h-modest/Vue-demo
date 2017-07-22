@@ -27,7 +27,7 @@
           </div>
         </section>
         <section class="content">
-          <ul class="navigation" v-if="isNavigationOpen">
+          <ul class="navigation" v-show="isNavigationOpen">
             <li v-for="(item, index) in navigation" :key="index">
               <router-link :to="item.url">{{ item.title }}</router-link>
             </li>
@@ -85,10 +85,6 @@ export default {
     this.load();
   },
   updated(){
-    // if (this.navigation.indexOf(this.$router.history.current.path)) {
-    //   console.log(1);
-    // }
-    // console.log(this.navigation.indexOf(this.$router.history.current.path));
     this.load();
   },
   watch: {

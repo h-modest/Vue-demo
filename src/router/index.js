@@ -5,6 +5,8 @@ import Point from '@/components/point/Point'
 import Author from '@/components/author/Author'
 import Topic from '@/components/topic/Topic'
 import Setting from '@/components/setting/Setting'
+import Info from '@/components/setting/component/Info'
+import Notice from '@/components/setting/component/Notice'
 
 Vue.use(Router)
 
@@ -27,7 +29,17 @@ export default new Router({
     },
     {
       path: '/setting',
-      component: Setting
+      component: Setting,
+      children: [
+        {
+          path: 'info',
+          component: Info,
+        },
+        {
+          path: 'notice',
+          component: Notice,
+        }
+      ]
     },
     {
       path: '/topic',
