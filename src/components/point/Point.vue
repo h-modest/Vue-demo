@@ -21,9 +21,11 @@
       <div class="gambit">
         <ul>
           <li v-for="(vo, index) in points" :key="index">
-            <div class="time">{{ vo.times }}</div>
-            <p class="title">{{ vo.title }}</p>
-            <p class="message">{{ vo.msg }}</p>
+            <router-link :to="{ path: 'point/' + vo.id + '/topic' }">
+              <div class="time">{{ vo.times }}</div>
+              <p class="title">{{ vo.title }}</p>
+              <p class="message">{{ vo.msg }}</p>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -39,14 +41,17 @@ export default {
     return {
       topicId: '1',
       points: [{
+        id: '2',
         times: '609期',
         title: '提高个税起征点真能减负嘛？',
         msg: '3月7日，财政部部长肖捷在发布会上表示，个人所得税免征额将根据消费水平综合测算，...'
       }, {
+        id: '3',
         times: '609期',
         title: '提高个税起征点真能减负嘛？',
         msg: '3月7日，财政部部长肖捷在发布会上表示，个人所得税免征额将根据消费水平综合测算，...'
       }, {
+        id: '4',
         times: '609期',
         title: '提高个税起征点真能减负嘛？',
         msg: '3月7日，财政部部长肖捷在发布会上表示，个人所得税免征额将根据消费水平综合测算，...'

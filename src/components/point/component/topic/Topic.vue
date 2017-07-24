@@ -1,7 +1,7 @@
 <template>
   <div class="topic">
     <goback-header :title="title"></goback-header>
-    话题专题部分
+    话题专题部分 {{ $route.params.pointId }}
   </div>
 </template>
 
