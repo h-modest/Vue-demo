@@ -8,6 +8,8 @@ import './assets/less/home.less'
 import './assets/less/point.less'
 import './assets/less/author.less'
 import './assets/less/setting.less'
+import createHistory from 'history/createBrowserHistory'
+global.browserHistory = createHistory()
 
 Vue.config.productionTip = false
 

@@ -8,14 +8,11 @@
 </template>
 
 <script>
-import createHistory from 'history/createBrowserHistory'
-const history = createHistory()
-
 export default {
     props: ['title'],
     methods: {
         jump(){
-            history.goBack();
+            browserHistory.goBack();
         }
     }
 
