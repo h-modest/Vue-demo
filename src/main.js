@@ -9,7 +9,10 @@ import './assets/less/point.less'
 import './assets/less/author.less'
 import './assets/less/setting.less'
 import createHistory from 'history/createBrowserHistory'
+import config from './config'
+import APIHandler from './lib/api'
 global.browserHistory = createHistory()
+global.API = new APIHandler(config)
 
 Vue.config.productionTip = false
 
@@ -18,5 +21,5 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
 })

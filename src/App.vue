@@ -106,6 +106,7 @@ export default {
       console.log(2);
     },
     cancelSearch() {
+      this.keyword = '';
       this.searchOpen = false;
     },
     load() {

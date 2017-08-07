@@ -10,6 +10,7 @@ import Notice from '@/components/setting/component/Notice'
 import NoticeDetail from '@/components/setting/component/NoticeDetail'
 import Catch from '@/components/setting/component/Catch'
 import Aboutus from '@/components/setting/component/Aboutus'
+import Counter from '@/components/counter/Counter'
 
 Vue.use(Router)
 
@@ -31,6 +32,10 @@ export default new Router({
           component: Topic
         }
       ]
+    },
+    {
+      path: '/counter',
+      component: Counter
     },
     {
       path: '/author',

@@ -23,6 +23,7 @@ export default {
         { name: '缓存', url: '/setting/catch' },
         { name: '关于我们', url: '/setting/aboutus' },
         { name: '退出登录', url: '/setting/logout' },
+        { name: 'vuex计算', url: '/counter' },
       ],
     }
   },
