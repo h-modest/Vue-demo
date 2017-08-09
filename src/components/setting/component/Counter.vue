@@ -1,5 +1,6 @@
 <template>
   <div class="counter">
+      <goback-header :title="title"></goback-header>
       Counter is {{ counter }} - {{ number }}
       <button type="button" @click="increment">+5</button>
       <button type="button" @click="decrement">-3</button>
@@ -10,11 +11,15 @@
 </template>
 
 <script>
-  import store from '@/store'
+  import gobackHeader from '@/components/common/gobackHeader'
   import { mapGetters, mapActions } from 'vuex';
   export default {
     mame: 'counter',
-    store,
+    data(){
+      return {
+        title: 'vuex简单计算',
+      }
+    },
     computed: {
       ...mapGetters({
         counter: 'count',
@@ -33,6 +38,9 @@
           console.log(count);
         })
       }
+    },
+    components: {
+      gobackHeader
     }
   }
 </script>

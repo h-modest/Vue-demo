@@ -3,6 +3,6 @@ export const increment = state => {
 }
 
 export const decrement = state => {
-  API.post('product', { 'count': 0 })
-  .then(count => state.count = count.count)
+  API.post('product', { 'count': state.count })
+  .then(count => state.count = count)
 }

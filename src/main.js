@@ -11,6 +11,7 @@ import './assets/less/setting.less'
 import createHistory from 'history/createBrowserHistory'
 import config from './config'
 import APIHandler from './lib/api'
+import store from './store'
 global.browserHistory = createHistory()
 global.API = new APIHandler(config)
 
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App },
 })

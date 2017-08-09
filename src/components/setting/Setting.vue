@@ -22,8 +22,8 @@ export default {
         { name: '通知', url: '/setting/notice' },
         { name: '缓存', url: '/setting/catch' },
         { name: '关于我们', url: '/setting/aboutus' },
+        { name: 'vuex计算', url: '/setting/counter' },
         { name: '退出登录', url: '/setting/logout' },
-        { name: 'vuex计算', url: '/counter' },
       ],
     }
   },
