@@ -12,10 +12,14 @@ import createHistory from 'history/createBrowserHistory'
 import config from './config'
 import APIHandler from './lib/api'
 import store from './store'
+// 引入echarts
+import echarts from 'echarts'
+
 global.browserHistory = createHistory()
 global.API = new APIHandler(config)
 
 Vue.config.productionTip = false
+Vue.prototype.$echarts = echarts
 
 /* eslint-disable no-new */
 new Vue({
