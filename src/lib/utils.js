@@ -45,3 +45,31 @@ log.info = (message) => {
 log.log = (message) => {
   log('log', message);
 };
+
+/**
+ * Filter Array
+ *
+ * @param list array
+ * @param filter keyword
+ * @param filter_key array_keyword_name
+ *
+ *
+ */
+export function filterList(list, filter, filter_key) {
+  return _.filter(list, item => {
+    if (!filter) {
+      return true;
+    }
+    for (let key in item) {
+      if (filter_key.indexOf(key) >= 0){
+        let value = item[key];
+        if (typeof value === 'string') {
+          if (value.indexOf(filter) >= 0) {
+            return true;
+          }
+        }
+      };
+    }
+    return false;
+  });
+}

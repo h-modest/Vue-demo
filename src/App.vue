@@ -24,6 +24,22 @@
               </div>
               <span class="cancel-search" @click="cancelSearch"></span>
             </div>
+            <div class="search-content">
+              <table v-if="searchContent">
+                <thead>
+                  <th v-for="(item, index) in searchContent.header" :key="index">{{ item }}</th>
+                </thead>
+                <tbody>
+                  <tr v-for="vo in searchContent.data" :key="vo.id">
+                    <td>{{ vo.name }}</td>
+                    <td>{{ vo.sex ? '女' : '男' }}</td>
+                    <td>{{ vo.age }}</td>
+                    <td>{{ vo.tel }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="no-more" v-else>暂无内容</p>
+            </div>
           </div>
         </section>
         <section class="content">
@@ -52,6 +68,10 @@
 </template>
 
 <script>
+
+import { filterList } from '@/lib/utils'
+import _ from 'lodash'
+
 export default {
   name: 'app',
   data() {
@@ -79,6 +99,16 @@ export default {
       keyword: '',
       searchOpen: false,
       isNavigationOpen: true,
+      dataList: {
+        header: ['姓名', '性别', '年龄', '电话'],
+        data: [
+          {id: 1, name: 'huangxueqian', age: 18, tel: '15260090138', birthday: '19920924', sex: 0, email: '464492470@qq.com'},
+          {id: 2, name: 'chengjianming', age: 25, tel: '18720086308', birthday: '19900523', sex: 0, email: ''},
+          {id: 3, name: 'wangfeng', age: 20, tel: '05965626576', birthday: '19950401', sex: 1, email: '348699835@qq.com'},
+          {id: 4, name: 'tianshuqin', age: 24, tel: '05965666576', birthday: '19940701', sex: 1, email: 'h-modest@hotmail.com'}
+        ]
+      },
+      searchContent: {},
     }
   },
   created(){
@@ -89,7 +119,15 @@ export default {
   },
   watch: {
     keyword(newValue){
-      console.log(newValue);
+      const { data, header } = this.dataList;
+      let filter_key = [ 'name', 'sex', 'age', 'tel' ];
+      let filter = {};
+      let searchData = filterList(data, newValue, filter_key);
+      if (searchData.length > 1) {
+        filter.header = header;
+        filter.data = searchData;
+      }
+      this.searchContent = filter;
     }
   },
   methods: {
@@ -115,7 +153,7 @@ export default {
         return item.url === path;
       });
       this.isNavigationOpen = newArr.length != 0;
-    }
+    },
   }
 }
 </script>
